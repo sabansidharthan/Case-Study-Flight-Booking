@@ -1,0 +1,55 @@
+<div class="bootstrap-wrapper" >
+    <div class="container mt">
+        <div class="row">
+            <div class="col-md-6 offset-md-3" style="background-color:bisque; opacity: 100%; border-radius: 10px;">
+                <div class="container text-center">
+
+                    <img class="img-fluid" src="/assets/security.png" alt="login image" style="width: 100px" />
+
+                </div>
+                <h1 class="text-center">Login here.</h1>
+
+                <form (ngSubmit)="onSubmit()">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input 
+                        required
+                        name="email"
+                        [formControl]="emailFormControl"
+                        [(ngModel)]="credential.email"
+                        type="email" matInput />
+                        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                            Please enter a valid email address
+                          </mat-error>
+                          <mat-error *ngIf="emailFormControl.hasError('required')">
+                            Email is <strong>required</strong>
+                          </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input 
+                        required
+                        [formControl]="password"
+                        name="password"
+                        [(ngModel)]="credential.password"
+                        type="password" matInput>
+                    </mat-form-field>
+
+                    <div class="container text-center">
+                        <button type="submit" mat-raised-button color="primary">Login</button>
+
+                        <button type="reset" style="margin: 10px;" mat-raised-button color="primary">Reset</button>
+                        
+
+                    </div>
+
+
+
+                </form>
+                <br>
+               
+            </div>
+        </div>
+
+    </div>
+</div>
